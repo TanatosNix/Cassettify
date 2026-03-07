@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Build and packaging artifacts
+build/
+build_new/
+dist/
+dist_new/
+dist_installer/
+*.spec.bak
+
+# Local binaries and archives
+*.exe
+*.zip
+
+# Windows metadata
+desktop.ini
+Thumbs.db
+
+# Local backups
+*.backup_*.py
