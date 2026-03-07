@@ -1,53 +1,80 @@
 # Cassettify
 
-Cassettify es una app de escritorio para convertir y gestionar audio/video de forma rapida, local y sencilla, usando Python + FFmpeg.
+<p align="center">
+  Aplicacion de escritorio para convertir y gestionar audio/video con <b>Python + FFmpeg</b>.<br/>
+  Flujo rapido, procesamiento por lotes y una identidad visual con estilo propio.
+</p>
 
-## Que incluye
+---
 
-- Conversion de audio y video con perfiles practicos
-- Procesamiento por lotes (batch)
-- Integracion local con FFmpeg
-- Interfaz con estilo retro-moderno
-- Landing web llamativa en:
-  - `index.html`
-  - `styles.css`
-  - `app.js`
+## Vision
 
-## Estructura principal
+Cassettify busca una experiencia directa: cargar archivos, elegir perfil y exportar sin friccion.
+Todo el procesamiento se ejecuta en local.
 
-- `diseño.py`: aplicacion principal
-- `ffmpeg/`: binarios y docs de FFmpeg usados por el proyecto
-- `bootstrap.ps1`: script de arranque/configuracion
-- `try.iss`: script de Inno Setup para instalador
-- `index.html`: landing page visual del proyecto
+## Lo mas potente
 
-## Requisitos
+- Conversion de audio y video con perfiles utiles para uso real.
+- Procesamiento por lotes para colecciones grandes.
+- Motor FFmpeg integrado en el proyecto.
+- Interfaz desktop personalizada (estilo retro-moderno).
+- Landing visual incluida para presentacion del proyecto.
 
-- Windows
-- Python 3.10+ recomendado
-- FFmpeg (incluido en este repo)
+## Demo Web (Landing)
 
-## Ejecucion local
+La landing se encuentra en la raiz:
 
-1. Clona el repositorio.
-2. Entra en la carpeta del proyecto.
-3. Ejecuta la app principal:
+- `index.html`
+- `styles.css`
+- `app.js`
 
-```powershell
-python diseño.py
-```
-
-Para abrir la landing web local:
+Abrir localmente:
 
 ```powershell
 start index.html
 ```
 
-## Build de instalador (referencia)
+## Estructura del proyecto
 
-El repo incluye configuracion para empaquetado con PyInstaller y generacion de instalador con Inno Setup.
+```text
+cassettify/
+|- diseño.py            # Aplicacion principal
+|- ffmpeg/              # Binarios y documentacion de FFmpeg
+|- bootstrap.ps1        # Script de arranque/configuracion
+|- Cassettify.spec      # Configuracion de PyInstaller
+|- try.iss              # Script de Inno Setup (instalador)
+|- index.html           # Landing page
+|- styles.css           # Estilos de la landing
+|- app.js               # Interacciones de la landing
+```
+
+## Requisitos
+
+- Windows
+- Python 3.10 o superior
+- FFmpeg (incluido en este repositorio)
+
+## Inicio rapido
+
+1. Clonar el repositorio.
+2. Entrar al directorio del proyecto.
+3. Ejecutar la aplicacion:
+
+```powershell
+python diseño.py
+```
+
+## Build y empaquetado
+
+El repositorio ya incluye archivos para empaquetar la app:
+
+- `Cassettify.spec` para PyInstaller
+- `try.iss` para generar instalador con Inno Setup
+
+## Estado del proyecto
+
+Desarrollo activo. El enfoque actual esta en mejorar experiencia de uso, presentacion y empaquetado.
 
 ## Licencia
 
-MIT
-
+MIT License
