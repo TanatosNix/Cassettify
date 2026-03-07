@@ -1,80 +1,74 @@
+<div align="center">
+
 # Cassettify
 
-<p align="center">
-  Aplicacion de escritorio para convertir y gestionar audio/video con <b>Python + FFmpeg</b>.<br/>
-  Flujo rapido, procesamiento por lotes y una identidad visual con estilo propio.
+### Conversion multimedia local, rapida y con estilo
+
+App de escritorio en **Python + FFmpeg** para convertir audio/video, procesar por lotes y exportar en segundos.
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/FFmpeg-Integrated-007808?style=for-the-badge&logo=ffmpeg&logoColor=white" alt="FFmpeg"/>
+  <img src="https://img.shields.io/badge/Desktop-App-1F6FEB?style=for-the-badge" alt="Desktop App"/>
+  <img src="https://img.shields.io/badge/License-MIT-A3BE8C?style=for-the-badge" alt="MIT"/>
 </p>
+
+</div>
 
 ---
 
-## Vision
+## Preview
 
-Cassettify busca una experiencia directa: cargar archivos, elegir perfil y exportar sin friccion.
-Todo el procesamiento se ejecuta en local.
+- Interfaz desktop principal: `diseño.py`
+- Landing visual del proyecto: `index.html`
 
-## Lo mas potente
+## Features
 
-- Conversion de audio y video con perfiles utiles para uso real.
-- Procesamiento por lotes para colecciones grandes.
-- Motor FFmpeg integrado en el proyecto.
-- Interfaz desktop personalizada (estilo retro-moderno).
-- Landing visual incluida para presentacion del proyecto.
+- Conversion de audio y video con perfiles utiles.
+- Procesamiento por lotes (batch) para grandes listas.
+- Ejecucion local para mayor privacidad.
+- Motor FFmpeg integrado en el repositorio.
+- Flujo rapido: cargar, configurar, convertir.
 
-## Demo Web (Landing)
+## Quick Start
 
-La landing se encuentra en la raiz:
+```powershell
+git clone https://github.com/TanatosNix/Cassettify.git
+cd Cassettify
+python diseño.py
+```
 
-- `index.html`
-- `styles.css`
-- `app.js`
-
-Abrir localmente:
+Abrir landing web local:
 
 ```powershell
 start index.html
 ```
 
-## Estructura del proyecto
+## Project Structure
 
 ```text
 cassettify/
-|- diseño.py            # Aplicacion principal
-|- ffmpeg/              # Binarios y documentacion de FFmpeg
-|- bootstrap.ps1        # Script de arranque/configuracion
-|- Cassettify.spec      # Configuracion de PyInstaller
-|- try.iss              # Script de Inno Setup (instalador)
-|- index.html           # Landing page
-|- styles.css           # Estilos de la landing
-|- app.js               # Interacciones de la landing
+|- diseño.py         # App principal
+|- ffmpeg/           # Binarios y docs de FFmpeg
+|- bootstrap.ps1     # Setup/arranque
+|- Cassettify.spec   # Build con PyInstaller
+|- try.iss           # Instalador con Inno Setup
+|- index.html        # Landing
+|- styles.css        # Estilos de landing
+|- app.js            # Animaciones de landing
 ```
 
-## Requisitos
+## Build
 
-- Windows
-- Python 3.10 o superior
-- FFmpeg (incluido en este repositorio)
+- `Cassettify.spec`: empaquetado con PyInstaller
+- `try.iss`: generacion de instalador (Inno Setup)
 
-## Inicio rapido
+## Roadmap
 
-1. Clonar el repositorio.
-2. Entrar al directorio del proyecto.
-3. Ejecutar la aplicacion:
+- Mejorar presets de conversion.
+- Afinar UX de cola de trabajos.
+- Expandir branding visual de la app y la landing.
 
-```powershell
-python diseño.py
-```
+## License
 
-## Build y empaquetado
-
-El repositorio ya incluye archivos para empaquetar la app:
-
-- `Cassettify.spec` para PyInstaller
-- `try.iss` para generar instalador con Inno Setup
-
-## Estado del proyecto
-
-Desarrollo activo. El enfoque actual esta en mejorar experiencia de uso, presentacion y empaquetado.
-
-## Licencia
-
-MIT License
+MIT
