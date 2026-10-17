@@ -21,3 +21,22 @@ Thumbs.db
 
 # Local backups
 *.backup_*.py
+
+# Environments, secrets and session data
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+cookies*.txt
+cookies*.json
+*.log
+*.pem
+*.key
+*.p12
+*.pfx
+*service-account*.json
+*service_account*.json
+.idea/
+.vscode/
+ffmpeg/

@@ -9,6 +9,9 @@ $AppDataRoot = Join-Path $env:LOCALAPPDATA "Cassettify"
 $DepsLogDir = Join-Path $AppDataRoot "deps"
 $null = New-Item -ItemType Directory -Path $DepsLogDir -Force
 $DepsLog = Join-Path $DepsLogDir "bootstrap.log"
+$Requirements = Join-Path $PSScriptRoot "requirements.txt"
+$BuildRequirements = Join-Path $PSScriptRoot "requirements-build.txt"
+$BgutilProviderVersion = "1.3.1"
 
 function Write-Log {
     param([string]$Message)
@@ -131,8 +134,17 @@ function Setup-BgutilProvider {
                 Write-Log "bgutil provider no encontrado y UpdateOnly activo: no se clona."
                 return
             }
-            Write-Log "Clonando bgutil-ytdlp-pot-provider en $potRoot"
-            & $gitExe clone https://github.com/Brainicism/bgutil-ytdlp-pot-provider.git $potRoot
+            Write-Log "Clonando bgutil-ytdlp-pot-provider $BgutilProviderVersion en $potRoot"
+            & $gitExe clone --single-branch --branch $BgutilProviderVersion https://github.com/Brainicism/bgutil-ytdlp-pot-provider.git $potRoot
+        } else {
+            Push-Location $potRoot
+            try {
+                Write-Log "Actualizando bgutil-ytdlp-pot-provider a $BgutilProviderVersion"
+                & $gitExe fetch --tags
+                & $gitExe checkout $BgutilProviderVersion
+            } finally {
+                Pop-Location
+            }
         }
 
         if (-not (Test-Path $potServer)) {
@@ -187,7 +199,18 @@ if (-not $pyExe) {
 if ($pyExe) {
     Write-Log "Python detectado: $pyExe"
     & $pyExe -m pip install -U pip
-    & $pyExe -m pip install -U yt-dlp yt-dlp-ejs bgutil-ytdlp-pot-provider
+    if (Test-Path $Requirements) {
+        Write-Log "Instalando dependencias desde $Requirements"
+        & $pyExe -m pip install -U -r $Requirements
+    } else {
+        Write-Log "requirements.txt no encontrado; usando lista minima integrada."
+        & $pyExe -m pip install -U yt-dlp yt-dlp-ejs Pillow pywebview bgutil-ytdlp-pot-provider
+    }
+
+    if (Test-Path $BuildRequirements) {
+        Write-Log "Verificando dependencias de build desde $BuildRequirements"
+        & $pyExe -m pip install -U -r $BuildRequirements
+    }
 } else {
     Write-Log "Python no disponible tras bootstrap."
 }

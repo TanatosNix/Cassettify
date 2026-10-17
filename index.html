@@ -3,77 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cassettify | Convierte audio y video con estilo</title>
+    <title>Cassettify | Conversión multimedia local</title>
     <meta
       name="description"
-      content="Cassettify convierte y organiza tus archivos multimedia con una experiencia visual potente, rápida y elegante."
+      content="Cassettify convierte audio y video con FFmpeg, cola de descargas, sesión integrada y una experiencia de escritorio cuidada."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bg-orb orb-a"></div>
-    <div class="bg-orb orb-b"></div>
-    <div class="noise"></div>
-
     <header class="topbar">
-      <div class="logo">CASSETTIFY</div>
-      <a class="ghost-btn" href="#descargar">Descargar</a>
+      <a class="brand" href="#inicio" aria-label="Cassettify">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Cassettify</span>
+      </a>
+      <nav aria-label="Principal">
+        <a href="#flujo">Flujo</a>
+        <a href="#detalles">Detalles</a>
+      </nav>
+      <a class="nav-action" href="CassettifySetup.exe" download>Descargar</a>
     </header>
 
-    <main>
+    <main id="inicio">
       <section class="hero">
-        <p class="tag">NUEVA GENERACION DE CONVERSION MULTIMEDIA</p>
-        <h1>Convierte. Organiza.<br />Impacta.</h1>
-        <p class="lead">
-          Una herramienta todo-en-uno con motor FFmpeg, interfaz limpia y un
-          look brutal para creadores exigentes.
-        </p>
-        <div class="cta-row">
-          <a class="primary-btn" id="descargar" href="#">Descargar Ahora</a>
-          <a class="secondary-btn" href="#">Ver Demo</a>
+        <div class="hero-copy">
+          <p class="eyebrow">Audio y video local</p>
+          <h1>Cassettify</h1>
+          <p class="lead">
+            Descarga, convierte y organiza contenido multimedia con FFmpeg,
+            sesión integrada y una interfaz de escritorio pensada para trabajar
+            rápido.
+          </p>
+          <div class="cta-row">
+            <a class="primary-btn" href="CassettifySetup.exe" download>
+              Descargar para Windows
+            </a>
+            <a class="secondary-btn" href="#flujo">Ver flujo</a>
+          </div>
+        </div>
+        <div class="hero-facts" aria-label="Capacidades principales">
+          <span>FFmpeg integrado</span>
+          <span>Cola de descargas</span>
+          <span>Sesión YouTube</span>
         </div>
       </section>
 
-      <section class="panel">
-        <div class="equalizer" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span
-          ><span></span><span></span><span></span><span></span><span></span>
+      <section class="workflow section-band" id="flujo">
+        <div class="section-head">
+          <p class="eyebrow">Flujo directo</p>
+          <h2>De enlace a archivo final sin pantallas de sobra.</h2>
         </div>
-        <div class="stats-grid">
-          <article>
-            <h3>+40</h3>
-            <p>formatos soportados</p>
+        <div class="steps">
+          <article class="reveal">
+            <span>01</span>
+            <h3>Pega la URL</h3>
+            <p>La app detecta enlaces de YouTube y prepara el listado de formatos.</p>
           </article>
-          <article>
-            <h3>0 clicks extra</h3>
-            <p>flujo directo y rapido</p>
+          <article class="reveal">
+            <span>02</span>
+            <h3>Elige salida</h3>
+            <p>Video, audio, contenedor y códec quedan en un diálogo compacto.</p>
           </article>
-          <article>
-            <h3>100%</h3>
-            <p>local, privado y seguro</p>
+          <article class="reveal">
+            <span>03</span>
+            <h3>Revisa la cola</h3>
+            <p>Progreso, estado, apertura del archivo y carpeta desde la misma vista.</p>
           </article>
         </div>
       </section>
 
-      <section class="features">
-        <article class="card">
-          <h4>Conversion Inteligente</h4>
-          <p>Ajustes listos para musica, voz, streaming o archivo maestro.</p>
-        </article>
-        <article class="card">
-          <h4>Batch Real</h4>
-          <p>Procesa listas grandes sin bloquear tu flujo de trabajo.</p>
-        </article>
-        <article class="card">
-          <h4>Estetica Cassettewave</h4>
-          <p>Interfaz con personalidad. No parece una app generica.</p>
-        </article>
+      <section class="details section-band" id="detalles">
+        <div class="detail-copy reveal">
+          <p class="eyebrow">Diseñado para escritorio</p>
+          <h2>Privado, local y preparado para sesiones largas.</h2>
+          <p>
+            Cassettify mantiene cookies en AppData, rota logs, detecta FFmpeg,
+            busca runtimes JS y avisa cuando el entorno puede limitar la calidad
+            de descarga.
+          </p>
+        </div>
+        <div class="metrics reveal" aria-label="Resumen técnico">
+          <article>
+            <strong>40+</strong>
+            <span>formatos útiles</span>
+          </article>
+          <article>
+            <strong>100%</strong>
+            <span>ejecución local</span>
+          </article>
+          <article>
+            <strong>1</strong>
+            <span>cola visual</span>
+          </article>
+        </div>
       </section>
     </main>
 

@@ -1,0 +1,10 @@
+{
+  "name": "cassettify",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing estática y app de escritorio para Cassettify.",
+  "scripts": {
+    "serve": "python -m http.server 5173",
+    "check:py": "python -m py_compile diseño.py"
+  }
+}

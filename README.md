@@ -2,15 +2,15 @@
 
 # Cassettify
 
-### Conversion multimedia local, rapida y con estilo
+### Conversión multimedia local, rápida y con una interfaz cuidada
 
-App de escritorio en **Python + FFmpeg** para convertir audio/video, procesar por lotes y exportar en segundos.
+App de escritorio en **Python + CustomTkinter + FFmpeg + yt-dlp** para descargar, convertir y organizar audio/video con cola visual y login integrado.
 
 <p>
-  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/Python-3.13+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/yt--dlp-2026.8.19-2DD4BF?style=for-the-badge" alt="yt-dlp"/>
   <img src="https://img.shields.io/badge/FFmpeg-Integrated-007808?style=for-the-badge&logo=ffmpeg&logoColor=white" alt="FFmpeg"/>
-  <img src="https://img.shields.io/badge/Desktop-App-1F6FEB?style=for-the-badge" alt="Desktop App"/>
-  <img src="https://img.shields.io/badge/License-MIT-A3BE8C?style=for-the-badge" alt="MIT"/>
+  <img src="https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge" alt="MIT"/>
 </p>
 
 </div>
@@ -19,55 +19,65 @@ App de escritorio en **Python + FFmpeg** para convertir audio/video, procesar po
 
 ## Preview
 
-- Interfaz desktop principal: `diseño.py`
+- App desktop principal: `diseño.py`
 - Landing visual del proyecto: `index.html`
+- Asset hero: `assets/cassettify-console.png`
 
 ## Features
 
-- Conversion de audio y video con perfiles utiles.
-- Procesamiento por lotes (batch) para grandes listas.
-- Ejecucion local para mayor privacidad.
-- Motor FFmpeg integrado en el repositorio.
-- Flujo rapido: cargar, configurar, convertir.
+- Descarga y conversión de audio/video con FFmpeg.
+- Login WebView para guardar cookies en AppData.
+- Cola de trabajos con progreso, apertura de archivo y carpeta.
+- Interfaz moderna en CustomTkinter con fallback Tkinter si no está disponible.
+- Detección de FFmpeg, runtime JS, yt-dlp-ejs y bgutil POT provider.
+- Scripts reproducibles para instalar o actualizar dependencias.
 
 ## Quick Start
 
 ```powershell
-git clone https://github.com/TanatosNix/Cassettify.git
-cd Cassettify
-python diseño.py
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-build.txt
+.\.venv\Scripts\python.exe diseño.py
 ```
 
 Abrir landing web local:
 
 ```powershell
-start index.html
+.\.venv\Scripts\python.exe -m http.server 5173
 ```
+
+Luego abre `http://localhost:5173`.
+
+## Dependencias
+
+- `requirements.txt`: dependencias de ejecución.
+- `requirements-build.txt`: dependencias de ejecución + PyInstaller.
+- `requirements.lock.txt`: snapshot exacto del entorno actualizado.
+- `bootstrap.ps1`: instalación/reparación de entorno y herramientas externas.
+- `update_deps.ps1`: actualización centralizada usando `bootstrap.ps1 -UpdateOnly`.
 
 ## Project Structure
 
 ```text
 cassettify/
-|- diseño.py         # App principal
-|- ffmpeg/           # Binarios y docs de FFmpeg
-|- bootstrap.ps1     # Setup/arranque
-|- Cassettify.spec   # Build con PyInstaller
-|- try.iss           # Instalador con Inno Setup
-|- index.html        # Landing
-|- styles.css        # Estilos de landing
-|- app.js            # Animaciones de landing
+|- diseño.py                 # App principal CustomTkinter con fallback Tkinter
+|- assets/                   # Recursos visuales de la landing
+|- ffmpeg/                   # Binarios y docs de FFmpeg
+|- bootstrap.ps1             # Setup/arranque de dependencias
+|- update_deps.ps1           # Actualizador centralizado
+|- requirements*.txt         # Dependencias Python
+|- Cassettify.spec           # Build con PyInstaller
+|- try.iss                   # Instalador con Inno Setup
+|- index.html                # Landing
+|- styles.css                # Estilos de landing
+|- app.js                    # Animaciones de landing
 ```
 
 ## Build
 
-- `Cassettify.spec`: empaquetado con PyInstaller
-- `try.iss`: generacion de instalador (Inno Setup)
-
-## Roadmap
-
-- Mejorar presets de conversion.
-- Afinar UX de cola de trabajos.
-- Expandir branding visual de la app y la landing.
+```powershell
+.\.venv\Scripts\pyinstaller.exe Cassettify.spec
+```
 
 ## License
 

@@ -1,14 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".card, .stats-grid article");
+  const revealItems = document.querySelectorAll(".reveal");
 
-  cards.forEach((el, i) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(16px)";
-    el.style.transition = "opacity 420ms ease, transform 420ms ease";
+  const reveal = (entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("is-visible");
+  };
 
-    setTimeout(() => {
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
-    }, 120 + i * 80);
-  });
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(reveal),
+      { threshold: 0.18 },
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+  }
 });
